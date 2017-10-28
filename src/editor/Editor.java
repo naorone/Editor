@@ -127,10 +127,14 @@ public class Editor extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         
+        
+        //Open
+        
         JFileChooser fileChooser = new JFileChooser();
         int seleccion = fileChooser.showOpenDialog(fileChooser);
         if (seleccion == JFileChooser.APPROVE_OPTION)
         {
+            jTextArea1.setText("");
             FileReader f = null;
             try {
                 int cont= 0;
@@ -171,7 +175,7 @@ public class Editor extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
        
-            // TODO add your handling code here:
+            // New File
             
         String nombreFichero = JOptionPane.showInputDialog("Nombre del fichero");    
              
@@ -186,6 +190,7 @@ public class Editor extends javax.swing.JFrame {
                 {
                     ficheroCreado.createNewFile();
                     jTextArea1.setText("");
+                    jLabel1.setText(nombreFichero);
                 }
            
         } catch (FileNotFoundException ex) {
@@ -203,15 +208,12 @@ public class Editor extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextArea1AncestorAdded
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
-        // TODO add your handling code here:
-        
-        
-        
-        
-        
+       // TODO add your handling code here:
+       //Save
+
         try 
         {
-            // TODO code application logic here
+            
             
             if(ficheroAbierto!=null) //Si se abrió un fichero
             {
@@ -233,7 +235,7 @@ public class Editor extends javax.swing.JFrame {
                 
                    
                 
-            }else{
+            }else{ //si ni se abró ni se creó fichero
                 
                 
                 JFileChooser fileChooser = new JFileChooser();
